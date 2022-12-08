@@ -1,9 +1,9 @@
 # --------------------------------------------------------------------------------------------------
 # General abstract type for exceptions
-abstract type FlowsException <: Exception end
+abstract type DescriptionsException <: Exception end
 
 # ambiguous description
-struct AmbiguousDescription <: FlowsException
+struct AmbiguousDescription <: DescriptionsException
     var::Description
 end
 

@@ -1,10 +1,11 @@
 module Descriptions
 
 #
-include("./utils.jl")
 include("./exceptions.jl")
+include("./utils.jl")
 
 export Description
+export DescriptionsException
 export AmbiguousDescription
 export makeDescription
 export add

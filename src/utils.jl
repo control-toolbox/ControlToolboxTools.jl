@@ -1,9 +1,4 @@
 # -------------------------------------------------------------------------------------------------- 
-# A desription is a tuple of symbols
-const DescVarArg = Vararg{Symbol} # or Symbol...
-const Description = Tuple{DescVarArg}
-
-# -------------------------------------------------------------------------------------------------- 
 # the description may be given as a tuple or a list of symbols (Vararg{Symbol})
 makeDescription(desc::DescVarArg) = Tuple(desc) # create a description from Vararg{Symbol}
 makeDescription(desc::Description) = desc

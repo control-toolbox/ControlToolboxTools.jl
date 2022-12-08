@@ -1,5 +1,10 @@
 module Descriptions
 
+# -------------------------------------------------------------------------------------------------- 
+# A desription is a tuple of symbols
+const DescVarArg = Vararg{Symbol} # or Symbol...
+const Description = Tuple{DescVarArg}
+
 #
 include("./exceptions.jl")
 include("./utils.jl")

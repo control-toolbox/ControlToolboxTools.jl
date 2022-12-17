@@ -1,8 +1,8 @@
 using Documenter
-using Descriptions
+using CTDescriptions
 
 makedocs(
-    sitename = "Descriptions.jl",
+    sitename = "CTDescriptions.jl",
     format = Documenter.HTML(prettyurls = false),
     pages = [
         "Introduction" => "index.md",
@@ -11,6 +11,6 @@ makedocs(
 )
 
 deploydocs(
-    repo = "github.com/control-toolbox/Descriptions.jl.git",
+    repo = "github.com/control-toolbox/CTDescriptions.jl.git",
     devbranch = "main"
 )

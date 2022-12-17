@@ -1,7 +1,7 @@
-using Descriptions
+using CTDescriptions
 using Test
 
-@testset verbose = true showtiming = true "Descriptions" begin
+@testset verbose = true showtiming = true "CTDescriptions" begin
     for name in (
         "exceptions",
         "utils"

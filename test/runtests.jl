@@ -1,7 +1,7 @@
-using CTDescriptions
+using ControlToolboxTools
 using Test
 
-@testset verbose = true showtiming = true "CTDescriptions" begin
+@testset verbose = true showtiming = true "ControlToolboxTools" begin
     for name in (
         "exceptions",
         "utils"

@@ -1,8 +1,8 @@
 using Documenter
-using CTDescriptions
+using ControlToolboxTools
 
 makedocs(
-    sitename = "CTDescriptions.jl",
+    sitename = "ControlToolboxTools.jl",
     format = Documenter.HTML(prettyurls = false),
     pages = [
         "Introduction" => "index.md",
@@ -11,6 +11,6 @@ makedocs(
 )
 
 deploydocs(
-    repo = "github.com/control-toolbox/CTDescriptions.jl.git",
+    repo = "github.com/control-toolbox/ControlToolboxTools.jl.git",
     devbranch = "main"
 )

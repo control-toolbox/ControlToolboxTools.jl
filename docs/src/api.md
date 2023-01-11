@@ -1,5 +1,5 @@
 ```@meta
-CurrentModule = CTDescriptions
+CurrentModule = ControlToolboxTools
 ```
 
 ```@contents
@@ -10,6 +10,6 @@ Pages = ["api.md"]
 This page is a dump of all the docstrings found in the code. 
 
 ```@autodocs
-Modules = [CTDescriptions]
+Modules = [ControlToolboxTools]
 Order = [:module, :type, :function, :macro]
 ```

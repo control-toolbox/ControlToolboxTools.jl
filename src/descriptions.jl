@@ -24,3 +24,6 @@ function getFullDescription(desc::Description, desc_list)::Description
     # If there are multiple maximal elements, then the first one will be returned.
     return desc_list[argmax(table[:, 1])]
 end
+
+diff(x::Description, y::Description) = Tuple(setdiff(x, y))
+\(x::Description, y::Description) = diff(x, y)

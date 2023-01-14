@@ -1,5 +1,7 @@
 module ControlToolboxTools
 
+import Base: \, Base
+
 # -------------------------------------------------------------------------------------------------- 
 # A desription is a tuple of symbols
 const DescVarArg = Vararg{Symbol} # or Symbol...
@@ -7,13 +9,17 @@ const Description = Tuple{DescVarArg}
 
 #
 include("./exceptions.jl")
-include("./utils.jl")
+include("./descriptions.jl")
+include("./callbacks.jl")
 
-export Description
-export DescriptionsException
-export AmbiguousDescription
-export makeDescription
-export add
-export getFullDescription
+# description
+export Description, makeDescription, add, getFullDescription
+
+# exceptions
+export ControlToolboxException, AmbiguousDescription, InconsistentArgument, IncorrectMethod
+
+# callbacks
+export ControlToolboxCallback, PrintCallback, StopCallback
+export get_priority_print_callbacks, get_priority_stop_callbacks
 
 end # module ControlToolboxTools

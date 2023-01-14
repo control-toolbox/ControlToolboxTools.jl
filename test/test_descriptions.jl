@@ -31,3 +31,9 @@ algorithmes = add(algorithmes, (:descent, :gradient, :fixedstep))
 # incorrect description
 @test_throws AmbiguousDescription gFD((:ttt,), algorithmes)
 @test_throws AmbiguousDescription gFD((:descent, :ttt), algorithmes)
+
+# diff
+x=(:a,:b,:c)
+y=(:b,)
+@test x\y == (:a, :c)
+@test typeof(x\y) <: Description

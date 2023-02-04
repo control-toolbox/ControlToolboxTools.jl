@@ -31,7 +31,7 @@ macro callable(expr)
     MyStruct = expr.args[2]
     esc(quote
         struct $MyStruct
-            f
+            f::Function
         end
         (s::$MyStruct)(args...; kwargs...) = s.f(args...; kwargs...)
     end)

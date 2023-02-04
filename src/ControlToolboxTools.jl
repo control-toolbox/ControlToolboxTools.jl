@@ -11,6 +11,7 @@ const Description = Tuple{DescVarArg}
 include("./exceptions.jl")
 include("./descriptions.jl")
 include("./callbacks.jl")
+include("./macros.jl")
 
 # description
 export Description, makeDescription, add, getFullDescription
@@ -21,5 +22,8 @@ export ControlToolboxException, AmbiguousDescription, InconsistentArgument, Inco
 # callbacks
 export ControlToolboxCallback, PrintCallback, StopCallback
 export get_priority_print_callbacks, get_priority_stop_callbacks
+
+# macros
+export @callable
 
 end # module ControlToolboxTools

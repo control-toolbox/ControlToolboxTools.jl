@@ -10,7 +10,8 @@ const get_priority_stop_callbacks = ControlToolboxTools.get_priority_stop_callba
     for name in (
         "exceptions",
         "callbacks",
-        "descriptions"
+        "descriptions",
+        "macros",
         )
         @testset "$name" begin
             include("test_$name.jl")

@@ -5,6 +5,7 @@ on:
     branches:
       - develop
       - main
+      - develop
     tags: '*'
 jobs:
   test:

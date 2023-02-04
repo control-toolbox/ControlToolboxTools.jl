@@ -1,7 +1,7 @@
 # exception thrower
 function throw_callable_error( msg = nothing )
     if isnothing(msg)
-        throw(error("@callable input is incorrect, expected: struct MyStruct end"))
+        throw(error("@callable input is incorrect, expected a struct"))
     else
         throw(error("@callable input is incorrect: ", msg))
     end
@@ -27,12 +27,25 @@ macro callable(expr)
         return :(throw_callable_error())
     end
 
+    #println(expr.args[3])
+
     #
+    corps = expr.args[3]
     MyStruct = expr.args[2]
     esc(quote
-        struct $MyStruct
-            f::Function
+        struct $MyStruct{f}
+            fun::Function
+            $corps
+            function $MyStruct{f}(args...) where {f}
+                new{f}(f, args...)
+            end
+            function $MyStruct(f::Function, args...)
+                $MyStruct{f}(args...)
+            end
+            function $MyStruct(args...; f::Function)
+                $MyStruct{f}(args...)
+            end
         end
-        (s::$MyStruct)(args...; kwargs...) = s.f(args...; kwargs...)
+        (s::$MyStruct)(args...; kwargs...) = s.fun(args...; kwargs...)
     end)
 end

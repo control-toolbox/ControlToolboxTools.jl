@@ -5,24 +5,6 @@ f(x) = 2x
 @test MyStruct{f}()(2) == 4
 @test MyStruct(f)(2) == 4
 
-#
-struct MyStructWithFieldsTest
-    f::Function
-    a::Real
-    MyStructWithFieldsTest(args...; f) = new(f, args...)
-    MyStructWithFieldsTest(args...) = new(args...)
-end
-(m::MyStructWithFieldsTest)(args...; kwargs...) = m.f(args...; kwargs...)
-
-s = MyStructWithFieldsTest(20, f=f)
-@test s.f(2) == 4
-@test s.a == 20
-
-m = MyStructWithFieldsTest(f, 20)
-@test m.f(2) == 4
-@test m.a == 20
-@test m(2) == 4
-
 # with other fields
 @callable struct MyStructWithFields
     a::Real

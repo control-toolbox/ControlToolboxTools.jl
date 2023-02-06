@@ -37,3 +37,18 @@ x=(:a,:b,:c)
 y=(:b,)
 @test x\y == (:a, :c)
 @test typeof(x\y) <: Description
+
+# inclusion and different sizes
+algorithmes = ()
+algorithmes = add(algorithmes, (:a, :b, :c)) 
+algorithmes = add(algorithmes, (:a, :b, :c, :d))
+@test gFD((:a, :b), algorithmes) == (:a, :b, :c)
+@test gFD((:a, :b, :c, :d), algorithmes) == (:a, :b, :c, :d)
+
+# inclusion and different sizes - switch ordering 
+# priority to the first with max shared elements
+algorithmes = ()
+algorithmes = add(algorithmes, (:a, :b, :c, :d))
+algorithmes = add(algorithmes, (:a, :b, :c)) 
+@test gFD((:a, :b), algorithmes) == (:a, :b, :c, :d)
+@test gFD((:a, :b, :c, :d), algorithmes) == (:a, :b, :c, :d)

@@ -10,7 +10,6 @@ add(x::Tuple{Vararg{Description}}, y::Description) = (x..., y)
 
 # this function transform an incomplete description to a complete one
 function getFullDescription(desc::Description, desc_list)::Description
-    # todo : vérifier si fonctionne si des descriptions de différentes tailles
     n = length(desc_list)
     table = zeros(Int8, n, 2)
     for i in range(1, n)
@@ -22,6 +21,7 @@ function getFullDescription(desc::Description, desc_list)::Description
     end
     # argmax : Return the index or key of the maximal element in a collection.
     # If there are multiple maximal elements, then the first one will be returned.
+    # This means that the first has the priority
     return desc_list[argmax(table[:, 1])]
 end
 

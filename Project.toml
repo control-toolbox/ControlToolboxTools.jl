@@ -1,7 +1,7 @@
 name = "ControlToolboxTools"
 uuid = "3a0bcf43-9180-47f3-913c-e71e0d69f39f"
 authors = ["Olivier Cots <olivier.cots@toulouse-inp.fr.fr>"]
-version = "0.3.1"
+version = "0.3.2"
 
 [compat]
 julia = "1.8"

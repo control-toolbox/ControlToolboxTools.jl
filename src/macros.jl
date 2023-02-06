@@ -32,9 +32,10 @@ macro callable(expr)
     #
     corps = expr.args[3]
     MyStruct = expr.args[2]
+    fun = gensym("fun")
     esc(quote
         struct $MyStruct{f}
-            fun::Function
+            $fun::Function
             $corps
             function $MyStruct{f}(args...) where {f}
                 new{f}(f, args...)
@@ -46,6 +47,6 @@ macro callable(expr)
                 $MyStruct{f}(args...)
             end
         end
-        (s::$MyStruct)(args...; kwargs...) = s.fun(args...; kwargs...)
+        (s::$MyStruct)(args...; kwargs...) = s.$fun(args...; kwargs...)
     end)
 end

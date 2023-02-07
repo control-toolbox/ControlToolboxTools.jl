@@ -12,6 +12,7 @@ const get_priority_stop_callbacks = ControlToolboxTools.get_priority_stop_callba
         "callbacks",
         "descriptions",
         "macros",
+        "functions",
         )
         @testset "$name" begin
             include("test_$name.jl")

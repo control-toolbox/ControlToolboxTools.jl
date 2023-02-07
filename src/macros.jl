@@ -28,7 +28,7 @@ macro callable(expr)
 
     #dump(expr)
 
-    # first elements must be :struc
+    # first elements must be :struct
     if !hasproperty(expr, :head) || expr.head != Symbol(:struct)
         return :(throw_callable_error())
     end
@@ -80,4 +80,38 @@ macro callable(expr)
             (s::$struct_name)(args...; kwargs...) = s.$fun(args...; kwargs...)
         end)
     end
+end
+
+
+# generate callable structure with the managing of autonomous vs nonautonomous cases
+macro time_dependence_function(expr)
+
+    #dump(expr)
+
+    if !hasproperty(expr, :head) || expr.head != Symbol(:tuple)
+        return :(throw_callable_error())
+    end
+
+    function_name = expr.args[1]
+    abstract_name = Symbol(:Abstract, function_name)
+    abstract_heritance = expr.args[2]
+
+    esc(quote
+        abstract type $(abstract_name) end
+        struct $(function_name){time_dependence} <: $(abstract_heritance){$(abstract_name), time_dependence}
+            f::Function
+            function $(function_name){time_dependence}(f::Function) where {time_dependence}
+                if !(time_dependence ∈ [:autonomous, :nonautonomous])
+                    error("the function must be :autonomous or :nonautonomous")
+                else
+                    new{time_dependence}(f)
+                end
+            end
+            $(function_name)(f::Function) = new{:autonomous}(f)
+        end
+        function (F::$(function_name){time_dependence})(t, args...; kwargs...) where {time_dependence}
+            return time_dependence==:autonomous ? F.f(args...; kwargs...) : F.f(t, args...; kwargs...)
+        end
+    end)
+
 end

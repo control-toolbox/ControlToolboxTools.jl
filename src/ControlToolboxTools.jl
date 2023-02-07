@@ -28,6 +28,6 @@ export get_priority_print_callbacks, get_priority_stop_callbacks
 export @callable
 
 # functions
-export ControlFunction
+export ControlFunction, Hamiltonian, HamiltonianVectorField, VectorField
 
 end # module ControlToolboxTools

@@ -25,9 +25,9 @@ export ControlToolboxCallback, PrintCallback, StopCallback
 export get_priority_print_callbacks, get_priority_stop_callbacks
 
 # macros
-export @callable
+export @callable, @time_dependence_function
 
 # functions
-export ControlFunction, Hamiltonian, HamiltonianVectorField, VectorField
+export LagrangeControlFunction, DynamicsControlFunction, Hamiltonian, HamiltonianVectorField, VectorField
 
 end # module ControlToolboxTools

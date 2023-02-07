@@ -12,6 +12,7 @@ include("./exceptions.jl")
 include("./descriptions.jl")
 include("./callbacks.jl")
 include("./macros.jl")
+include("functions.jl")
 
 # description
 export Description, makeDescription, add, getFullDescription
@@ -25,5 +26,8 @@ export get_priority_print_callbacks, get_priority_stop_callbacks
 
 # macros
 export @callable
+
+# functions
+export ControlFunction
 
 end # module ControlToolboxTools

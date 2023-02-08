@@ -28,6 +28,8 @@ export get_priority_print_callbacks, get_priority_stop_callbacks
 export @callable, @time_dependence_function
 
 # functions
-export LagrangeControlFunction, DynamicsControlFunction, Hamiltonian, HamiltonianVectorField, VectorField
+export Hamiltonian, HamiltonianVectorField, VectorField
+export LagrangeFunction, DynamicsFunction, ControlFunction, MultiplierFunction
+export StateConstraintFunction, ControlConstraintFunction, MixedConstraintFunction
 
 end # module ControlToolboxTools

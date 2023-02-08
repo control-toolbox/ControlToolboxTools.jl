@@ -97,8 +97,7 @@ macro time_dependence_function(expr)
     abstract_heritance = expr.args[2]
 
     esc(quote
-        abstract type $(abstract_name) end
-        struct $(function_name){time_dependence} <: $(abstract_heritance){$(abstract_name), time_dependence}
+        struct $(function_name){time_dependence} <: $(abstract_heritance){time_dependence}
             f::Function
             function $(function_name){time_dependence}(f::Function) where {time_dependence}
                 if !(time_dependence ∈ [:autonomous, :nonautonomous])
